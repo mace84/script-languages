@@ -31,7 +31,7 @@ RUN apt-get -y install cython3 libcurl4-openssl-dev
 
 RUN python3.6 -m pip install --upgrade pip setuptools wheel
 
-RUN pip install numpy scipy pandas spacy nltk scikit-learn statsmodels pyexasol
+RUN pip install numpy scipy pandas spacy nltk scikit-learn pyexasol
 
 # Load language models
 RUN python3.6 -m spacy download en_core_web_md
