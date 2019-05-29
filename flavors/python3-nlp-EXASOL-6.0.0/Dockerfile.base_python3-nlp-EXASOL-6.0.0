@@ -41,7 +41,8 @@ RUN pip install numpy scipy pandas spacy nltk scikit-learn pyexasol
 
 # Load language models
 RUN python3.6 -m spacy download en_core_web_md
-RUN python3.6 -c 'import nltk; nltk.download("vader_lexicon")'
+#RUN python3.6 -m nltk.downloader all -d /usr/local/share/nltk_data
+RUN python3.6 -m nltk.downloader vader_lexicon -d /usr/local/share/nltk_data
 
 RUN apt-get --yes  remove python3-pycurl
 RUN python3.6 -m pip install --ignore-installed pycurl
@@ -56,6 +57,6 @@ RUN adduser --disabled-login --uid 1000 --gid 1000 exasolution
 ENV LANG en_US.UTF-8  
 ENV LANGUAGE en_US:en  
 ENV LC_ALL en_US.UTF-8  
-
+ENV NLTK_DATA /usr/local/share/nltk_data
 
 
