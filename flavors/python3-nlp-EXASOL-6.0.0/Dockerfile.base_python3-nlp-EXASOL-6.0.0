@@ -37,11 +37,10 @@ RUN  curl -OL https://github.com/google/protobuf/releases/download/v3.5.1/protob
     (cd protobuf-3.5.1 ; ./configure ; make -j 4 ; make install ) && \
     rm protobuf-cpp-3.5.1.zip  && rm -r protobuf-3.5.1
 
-RUN pip install numpy scipy pandas spacy nltk scikit-learn pyexasol
+RUN pip install spacy nltk
 
 # Load language models
 RUN python3.6 -m spacy download en_core_web_md
-#RUN python3.6 -m nltk.downloader all -d /usr/local/share/nltk_data
 RUN python3.6 -m nltk.downloader vader_lexicon -d /usr/local/share/nltk_data
 
 RUN apt-get --yes  remove python3-pycurl
